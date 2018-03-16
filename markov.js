@@ -3,7 +3,7 @@ Array.prototype.randomElement = function () {
     return this[Math.floor(Math.random() * this.length)];
 };
 
-let generateChain = function (text) {
+function generateChain (text) {
     let listOfTokens = text.split(" ");
     let markovObject = {};
     let prev = null;
@@ -18,9 +18,9 @@ let generateChain = function (text) {
         prev = token;
     }
     return markovObject;
-};
+}
 
-let generateText = function (markovObject, length, startToken=null) {
+function generateText (markovObject, length, startToken=null) {
     let token;
     if (startToken === null) {
         token = Object.keys(markovObject).randomElement();
@@ -40,4 +40,4 @@ let generateText = function (markovObject, length, startToken=null) {
         token = next;
     }
     return new_text.join(" ");
-};
+}
