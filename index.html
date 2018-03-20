@@ -22,18 +22,32 @@
             <div class="card-header">CDLI Markov</div>
             <div class="card-body">
                 This toy will generate a new
-                <strong>fake</strong> atf-styled text from a dump of the transliterated texts from the
+                <strong>fake</strong> ATF-styled text from a dump of the transliterated texts from the
                 <a href="https://cdli.ucla.edu/">CDLI</a> project using a very simple
-                <a href="https://en.wikipedia.org/wiki/Markov_chain">Markov chain</a>.  Markov chains work by assigning to each word in a text a list of all the words that follow it, e.g. "United" → ("States", "Airlines").  The text generator starts with a single word and then selects a random word that follows the first, and so on... until the desired length is reached.  It can be a remarkably powerful way to generate new <strong>fake</strong> texts that resemble their source material, it's been used to generate fake versions of <a href="https://filiph.github.io/markov/">Trump</a> to the <a href="http://kingjamesprogramming.tumblr.com/">Bible</a> (and everything inbetween). 
+                <a href="https://en.wikipedia.org/wiki/Markov_chain">Markov chain</a>. Markov chains work by assigning to each word in a text a list of all the words that follow
+                it, e.g. "United" → ("States", "Airlines"). The text generator starts with a single word and then selects
+                a random word that follows the first, and so on... until the desired length is reached. It can be a remarkably
+                powerful way to generate new
+                <strong>fake</strong> texts that resemble their source material, it's been used to generate fake versions of
+                <a href="https://filiph.github.io/markov/">Trump</a> to the
+                <a href="http://kingjamesprogramming.tumblr.com/">Bible</a> (and everything inbetween).
+                <br>
+                <br> Select whether you want to produce just English text, or full <a href="http://oracc.museum.upenn.edu/doc/help/editinginatf/cdliatf/index.html">ATF</a> format.  Then load the data and click "Generate Text", it's quite slow loading the large text file, but once
+                it's done the "Generate Text" button should be active.  If you want to switch the type of text to generate later you'll have to reload the data once you've made your initial selection.
                 <br>
                 <br>
-                Load the data first and then click "Generate Text", it's quite slow loading the large text file, but once it's done the "Generate Text" button should be active.
-                <br>
-                <br>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="selectOutput" id="onlyEnglish" checked="checked" value="onlyEnglish">
+                    <label class="form-check-label" for="onlyEnglish">Only English</label>
+                </div>
+                <div class="form-check form-check-inline">
+
+                    <input class="form-check-input" type="radio" name="selectOutput" id="fullATF" value="fullATF">
+                    <label class="form-check-label" for="fullATF">Full ATF</label>
+                </div>
                 <button class="btn" type="button" id="getFile" onClick="getFile()">Load CDLI Data</button>
                 <button class="btn" type="button" disabled="disabled" id="genText" onClick="genText()">Generate Text</button>
                 <i id="spinner" class="fa fa-spinner fa-spin" style="font-size:24px; visibility: hidden"></i>
-
                 <pre id="fakeText" style="margin-top: 2rem"></pre>
             </div>
             <div class="card-footer text-muted">
